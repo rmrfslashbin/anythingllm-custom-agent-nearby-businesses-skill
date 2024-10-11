@@ -1,0 +1,42 @@
+{
+    "active": true,
+    "hubId": "nearby-businesses-skill",
+    "name": "Find Nearby Businesses",
+    "schema": "skill-1.0.0",
+    "version": "1.1.0",
+    "description": "Finds nearby businesses based on a user's query using Google Places API",
+    "author": "@assistant",
+    "license": "MIT",
+    "setup_args": {
+        "GOOGLE_PLACES_API_KEY": {
+            "type": "string",
+            "required": true,
+            "input": {
+                "type": "text",
+                "default": "",
+                "placeholder": "Your Google Places API Key",
+                "hint": "Enter your Google Places API Key"
+            }
+        }
+    },
+    "examples": [
+        {
+            "prompt": "Find coffee shops in downtown Seattle",
+            "call": "{\"query\": \"coffee shops in downtown Seattle\"}"
+        },
+        {
+            "prompt": "What are some good Italian restaurants near Times Square, New York?",
+            "call": "{\"query\": \"Italian restaurants near Times Square, New York\"}"
+        }
+    ],
+    "entrypoint": {
+        "file": "handler.js",
+        "params": {
+            "query": {
+                "description": "The user's query for finding nearby businesses",
+                "type": "string"
+            }
+        }
+    },
+    "imported": true
+}
