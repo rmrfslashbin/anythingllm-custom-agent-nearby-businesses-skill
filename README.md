@@ -1,19 +1,24 @@
 # Nearby Businesses Custom Agent Skill for AnythingLLM
 
-This custom agent skill allows users to find nearby businesses based on their queries using the Google Places API.
+This custom agent skill allows users to find nearby businesses based on their queries using the Google Places API. It now supports more detailed information, reviews, and various search parameters.
 
 ## Features
 
 - Searches for businesses based on user queries
-- Provides business names, addresses, and ratings (when available)
-- Handles a wide range of queries including location, business type, and features
+- Provides business names, addresses, and ratings
+- Supports searching within a specific radius
+- Can filter for businesses open now
+- Retrieves operating hours and reviews when requested
+- Handles various types of queries including nearby locations and categorical searches
 
 ## Prerequisites
 
 - Node.js 18+
 - Yarn package manager
 - AnythingLLM running in a supported environment
-- Google Places API key
+- Google Places API key with the following APIs enabled:
+  - Places API
+  - Place Details API
 
 ## Installation
 
@@ -38,16 +43,20 @@ This custom agent skill allows users to find nearby businesses based on their qu
 ## Configuration
 
 1. Obtain a Google Places API key from the Google Cloud Console.
-2. Add the API key to the skill's configuration in the AnythingLLM UI.
+2. Enable the Places API and Place Details API for your project.
+3. Add the API key to the skill's configuration in the AnythingLLM UI.
 
 ## Usage
 
-Once installed and configured, you can use this skill by asking questions like:
+You can use this skill by asking questions like:
 
 - "Find Italian restaurants near Times Square, New York"
 - "What are some coffee shops in downtown Seattle?"
-- "Show me vegan cafes in San Francisco"
-- "Are there any 24-hour pharmacies near me?"
+- "Show me the top-rated bars within 2 km of my current location"
+- "What are the operating hours of the Eiffel Tower?"
+- "Find pharmacies open now in Chicago"
+- "Show me reviews for the Museum of Modern Art in New York"
+- "What are some popular tourist attractions in London?"
 
 The skill will process these queries and return a list of relevant businesses with their details.
 
@@ -66,7 +75,7 @@ This will run a series of test queries and display the results.
 ## Troubleshooting
 
 - If you encounter any errors related to the API key, make sure it's correctly set in both the `.env` file (for local testing) and the AnythingLLM UI configuration.
-- Ensure that your Google Places API key has the necessary permissions and quota for Text Search requests.
+- Ensure that your Google Places API key has the necessary permissions and quota for Text Search and Place Details requests.
 - If you encounter any package-related issues, try deleting the `yarn.lock` file and `node_modules` directory, then run `yarn install` again.
 
 ## License

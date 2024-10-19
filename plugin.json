@@ -3,8 +3,8 @@
     "hubId": "nearby-businesses-skill",
     "name": "Find Nearby Businesses",
     "schema": "skill-1.0.0",
-    "version": "1.1.1",
-    "description": "Finds nearby businesses based on a user's query using Google Places API",
+    "version": "1.2.0",
+    "description": "Finds nearby businesses based on a user's query using Google Places API. Supports detailed information, reviews, and various search parameters.",
     "author": "@assistant",
     "license": "MIT",
     "setup_args": {
@@ -27,6 +27,26 @@
         {
             "prompt": "What are some good Italian restaurants near Times Square, New York?",
             "call": "{\"query\": \"Italian restaurants near Times Square, New York\"}"
+        },
+        {
+            "prompt": "Show me the top-rated bars within 2 km of my current location",
+            "call": "{\"query\": \"top-rated bars\", \"location\": \"current\", \"radius\": 2000}"
+        },
+        {
+            "prompt": "What are the operating hours of the Eiffel Tower?",
+            "call": "{\"query\": \"Eiffel Tower\", \"details\": [\"operating_hours\"]}"
+        },
+        {
+            "prompt": "Find pharmacies open now in Chicago",
+            "call": "{\"query\": \"pharmacies in Chicago\", \"open_now\": true}"
+        },
+        {
+            "prompt": "Show me reviews for the Museum of Modern Art in New York",
+            "call": "{\"query\": \"Museum of Modern Art New York\", \"details\": [\"reviews\"]}"
+        },
+        {
+            "prompt": "What are some popular tourist attractions in London?",
+            "call": "{\"query\": \"tourist attractions in London\", \"type\": \"tourist_attraction\"}"
         }
     ],
     "entrypoint": {
@@ -34,6 +54,26 @@
         "params": {
             "query": {
                 "description": "The user's query for finding nearby businesses",
+                "type": "string"
+            },
+            "location": {
+                "description": "The location to search around (e.g., 'current' for user's location)",
+                "type": "string"
+            },
+            "radius": {
+                "description": "The radius (in meters) to search within",
+                "type": "number"
+            },
+            "details": {
+                "description": "Array of additional details to fetch (e.g., ['operating_hours', 'reviews'])",
+                "type": "array"
+            },
+            "open_now": {
+                "description": "Whether to only show places open now",
+                "type": "boolean"
+            },
+            "type": {
+                "description": "The type of place to search for (e.g., 'restaurant', 'museum')",
                 "type": "string"
             }
         }
