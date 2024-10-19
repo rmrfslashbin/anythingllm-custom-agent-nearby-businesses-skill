@@ -2,6 +2,9 @@ const axios = require('axios');
 
 module.exports.runtime = {
     handler: async function ({ query }) {
+        // This sets the callerId to the name and version of the tool.
+        const callerId = `${this.config.name}-v${this.config.version}`;
+
         const apiKey = this.runtimeArgs["GOOGLE_PLACES_API_KEY"];
         if (!apiKey) {
             return "Error: Google Places API key is not set.";
