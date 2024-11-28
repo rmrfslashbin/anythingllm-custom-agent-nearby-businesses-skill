@@ -1,6 +1,6 @@
 {
   "name": "nearby-businesses-skill",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Custom agent skill for finding nearby businesses using Google Places API",
   "main": "handler.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "custom-skill",
     "google-places"
   ],
-  "author": "",
+  "author": "@rmrfslashbin",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.28.0",

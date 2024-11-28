@@ -3,9 +3,10 @@
     "hubId": "nearby-businesses-skill",
     "name": "Find Nearby Businesses",
     "schema": "skill-1.0.0",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "Finds nearby businesses based on a user's query using Google Places API. Supports detailed information, reviews, and various search parameters.",
-    "author": "@assistant",
+    "author": "@rmrfslashbin",
+    "author_url": "https://github.com/rmrfslashbin",
     "license": "MIT",
     "setup_args": {
         "GOOGLE_PLACES_API_KEY": {
